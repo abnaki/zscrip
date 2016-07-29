@@ -1,0 +1,4 @@
+#
+# detaches head and moves branch tip
+echo Will checkout head... && sleep 5
+git checkout && git branch -M master

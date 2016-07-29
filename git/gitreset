@@ -1,0 +1,8 @@
+#
+echo Alternately maybe you should gitcleanup or git rebase -i and delete unwanted changes.
+echo Will stash and reset... && sleep 10
+git stash && git reset HEAD --hard
+git stash list | head -1
+echo If mistaken, maybe you can 
+echo git stash show -p
+echo git stash pop

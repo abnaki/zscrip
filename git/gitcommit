@@ -1,0 +1,8 @@
+#
+# arg 1 is 'your message'
+# arg 2 is file or dir
+echo To commit $2 with comment "$1"
+
+test -e $2 || echo Unspecified file or dir $2 && exit
+git add $2 && git commit --cleanup=verbatim -m "$1"
+echo Done with $2.  Do not forget push.

@@ -1,0 +1,5 @@
+#
+# git push -n origin master
+echo About to do the real thing...
+sleep 3
+git push origin master

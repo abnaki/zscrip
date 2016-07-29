@@ -1,0 +1,12 @@
+#
+# based on status, create commits.sh, a good way to prepare/review commits
+
+if ( -e  commits.sh ) then
+ mv commits.sh commits.sh.old
+ perl -n -e 'if( /^\#/ ) { print $_; } else { print "# ", $_; }' < commits.sh.old > commits.sh
+ rm commits.sh.old
+endif
+
+echo '' >> commits.sh
+echo echo 'About to do something... && sleep 4' >> commits.sh
+git status -s -uno |  awk '{ print "gitcommit \"\" " $2 " || exit" }' | sort | tee -a commits.sh

@@ -1,0 +1,3 @@
+#
+echo You should do git rebase -i HEAD~number 
+echo for number of past commits

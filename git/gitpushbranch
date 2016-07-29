@@ -1,0 +1,3 @@
+#
+# arg is branchname
+git push -u origin $1

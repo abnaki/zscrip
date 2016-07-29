@@ -1,0 +1,6 @@
+# 
+# pull origin. 1st arg is branch, defaulting to master.
+set branch=$1
+if ( $1 == '' ) set branch=master
+echo About to pull $branch ... && sleep 4
+git pull origin $branch

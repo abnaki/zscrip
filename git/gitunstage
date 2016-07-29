@@ -1,0 +1,3 @@
+#
+# unstage file(s) whether they are modified or not
+git reset HEAD $*

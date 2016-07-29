@@ -1,0 +1,4 @@
+#
+git status -s -uno $*
+echo Will checkout clean copy of these... && sleep 7
+git status -s -uno $* |  awk '{ print $2 }' | xargs -t git checkout 
