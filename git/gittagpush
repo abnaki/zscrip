@@ -1,0 +1,7 @@
+#/bin/csh -fe
+
+# arg 1 is tag
+
+git tag -a $1 -m "OK" 
+sleep 3
+gitpushbranch $1
