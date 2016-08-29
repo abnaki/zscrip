@@ -1,7 +1,8 @@
-#/bin/csh -fe
+#/bin/csh
 
 # arg 1 is tag
-
-git tag -a $1 -m "OK" 
+echo Will tag $1
+sleep 3
+git tag -a $1 -m "OK" || exit
 sleep 3
 gitpushbranch $1
