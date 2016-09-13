@@ -1,0 +1,5 @@
+# 
+# log since tag $1
+# disregard whitespace
+
+git log -w -p $1..HEAD
