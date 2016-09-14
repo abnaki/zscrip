@@ -12,4 +12,4 @@ git checkout $1 || exit
 # rm -rf packages/  # not proven necessary
 nuget restore $2 -NonInteractive  || exit
 
-/cygdrive/c/progra~2/MSBuild/12.0/Bin/MSBuild.exe /t:Rebuild /v:minimal  /p:Configuration=Release $2
+msrebuild /p:Configuration=Release $2
