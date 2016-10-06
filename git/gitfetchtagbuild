@@ -23,8 +23,6 @@ shift
 echo Shall add $*
 git add -f $*
 
-# commit to rbranch and merge any outputs into master
-git commit -m "Built Release" && git checkout master && git merge $rbranch
-echo You should commit this to master,
-git status -s
-git branch
+git commit -m "Built Release" && git checkout master && git merge $rbranch && git commit -m "Merged $rbranch" && echo We committed to master.
+git branch | grep '^\*'
+# Lingering doubts about what is necessary above
