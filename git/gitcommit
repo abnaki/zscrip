@@ -1,6 +1,11 @@
 #
 # arg 1 is 'your message'
-# arg 2 is file or dir
+# arg 2 is file
+
+# to descend a directory, you should use gitstat and 
+# find yourdir -type f >> commits.sh
+
+test -f $2 || echo Not a file && exit
 echo To commit $2 with comment "$1"
 
 test -e $2 || echo Unspecified file or dir $2 && exit
