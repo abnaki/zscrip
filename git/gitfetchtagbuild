@@ -2,14 +2,29 @@
 # working directory should be root of module
 # arg 1 is tag
 # arg 2 is .sln filename, in current dir
+# other args are new build output filenames
 
 echo Earlier you would have done gittagpush $1
 echo Now cleaning up.
 sleep 5
 git fetch || exit
 git checkout $1 || exit
+set rbranch=$1/built
+git checkout -b $rbranch || exit
 
 # rm -rf packages/  # not proven necessary
 nuget restore $2 -NonInteractive  || exit
 
 msrebuild /p:Configuration=Release $2
+
+# here, add any new build outputs
+shift
+shift
+echo Shall add $*
+git add -f $*
+
+# commit to rbranch and merge any outputs into master
+git commit -m "Built Release" && git checkout master && git merge $rbranch
+echo You should commit this to master,
+git status -s
+git branch
